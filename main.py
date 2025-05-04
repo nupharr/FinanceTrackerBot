@@ -1,4 +1,5 @@
-from src.messages import router1
+from src.handlers import router1
+from src.database import create_db
 import asyncio
 import logging
 import sys
@@ -22,6 +23,7 @@ dp.include_routers(router1)
 
 async def main() -> None:
     bot = Bot(token=str(TOKEN))
+    create_db()
     await dp.start_polling(bot)
 
 

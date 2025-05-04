@@ -1,12 +1,12 @@
-from aiogram import Router
-from aiogram.filters import CommandStart
-from aiogram.types import Message
-
-router1 = Router()
-
-
-@router1.message(CommandStart())
-async def message_start_handler(message: Message):
-    await message.answer(
-        f"Привет, {message.from_user.full_name if message.from_user else "User"}!\nДанный бот предназначен для ослеживания ваших трат.\nЧтобы продолжить, выберите действие."
-    )
+faq_text = """
+    Добро пожаловать в бот, который поможет следить за расходами
+    Всё что тебе надо это написать сообщение в следующем формате
+    {сколько потрачено} {категория}
+    Пример: 150 еда\n
+    Доступные команды:
+    /help - для получения инструкции
+    /dstats - посмотреть статистику за день
+    /wstats - посмотреть статистику за неделю
+    /mstats - посмотреть статистику за месяц
+    /delete-all - полностью удалить все данные и начать сначала
+"""
